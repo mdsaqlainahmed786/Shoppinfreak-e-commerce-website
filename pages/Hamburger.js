@@ -1,6 +1,6 @@
 import { useState } from "react";
-
-export default function Header() {
+import Image from "next/image"
+export default function Header({src, title}) {
   const [isNavOpen, setIsNavOpen] = useState(false);
 
   return (
@@ -34,17 +34,22 @@ export default function Header() {
               </svg>
             </div>
             <ul className="flex flex-col items-center justify-between min-h-[250px]">
+            <Image className="rounded-full -mt-14"src={src} height={96} width={96} alt="img"/>
+            <p className="mt-5 text-xl flex justify-center uppercase font-bold">Hello, {title}!</p>
               <li className="my-8 uppercase">
-                <a href="/about">About</a>
+                <a href="/about">Men's Clothing</a>
               </li>
               <li className="my-8 uppercase">
-                <a href="/about">Rate Us</a>
+                <a href="/about">Women's Clothing</a>
               </li>
               <li className="my-8 uppercase">
-                <a href="/portfolio">Transaction Issues</a>
+                <a href="/portfolio">Electronics</a>
               </li>
               <li className="my-8 uppercase">
-                <a href="/contact">Contact</a>
+                <a href="/portfolio">Jewellery</a>
+              </li>
+              <li className="my-8 uppercase">
+                <a href="/contact">Contact us</a>
               </li>
             </ul>
           </div>
