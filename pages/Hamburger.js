@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Image from "next/image"
+import Link from "next/link"
 export default function Header({src, title}) {
   const [isNavOpen, setIsNavOpen] = useState(false);
 
@@ -37,19 +38,16 @@ export default function Header({src, title}) {
             <Image className="rounded-full -mt-14"src={src} height={96} width={96} alt="img"/>
             <p className="mt-5 text-xl flex justify-center uppercase font-bold">Hello, {title}!</p>
               <li className="my-8 uppercase">
-                <a href="/about">Men's Clothing</a>
+                <Link target="_blank" href="/jewelery">Jewelery</Link>
               </li>
               <li className="my-8 uppercase">
-                <a href="/about">Women's Clothing</a>
+                <Link target="_blank" href="/electronics">Electronics</Link>
               </li>
               <li className="my-8 uppercase">
-                <a href="/portfolio">Electronics</a>
+                <Link target="_blank" href="/men'sClothing">Men's Clothing</Link>
               </li>
               <li className="my-8 uppercase">
-                <a href="/portfolio">Jewellery</a>
-              </li>
-              <li className="my-8 uppercase">
-                <a href="/contact">Contact us</a>
+                <Link target="_blank" href="/women'sclothing">Women's Clothing</Link>
               </li>
             </ul>
           </div>
