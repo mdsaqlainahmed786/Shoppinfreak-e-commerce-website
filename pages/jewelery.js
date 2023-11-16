@@ -2,12 +2,14 @@ import Navbar from "./_Components/_nav.js"
 import Login from "./login.js"
 import CategoryCard from "./_Components/CategoryCard.js"
 import LoadingBar from 'react-top-loading-bar'
+import { CartContext } from './_Context/cart'
 import axios from "axios"
+import {useContext,useRef, useState, useEffect} from "react"
 import { useSession} from 'next-auth/react';
-import {useState,useEffect} from "react"
 export default function Jewelery() {
   const [progress, setProgress ] = useState(0)
     const { data: session, status } = useSession();
+    const {cartItems} = useContext(CartContext)
     const [response,setRes] = useState(null)
     const fetcher = async() =>{
       try{
@@ -34,7 +36,7 @@ export default function Jewelery() {
         progress={progress}
         onLoaderFinished={() => setProgress(0)}
       />
-    <Navbar session={session}/>
+     <Navbar session={session} items={cartItems.length}/>
     <div className="absolute -mt-16">
     <p className="ml-5 pb-1 border-b-4 border-orange-600 rounded-b-sm font-sans text-[25px] inline">Results for Jewelery</p>
     </div>
@@ -46,7 +48,8 @@ export default function Jewelery() {
       title={product.title}
       image={product.image}
       description={product.description.slice(0, 80)}
-      price={product.price}/>
+      price={product.price}
+      product={product}/>
       </div>
       ))
   }

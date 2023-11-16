@@ -1,9 +1,10 @@
 import { useState } from "react";
+import { useRouter } from "next/router";
 import Image from "next/image"
 import Link from "next/link"
 export default function Header({src, title}) {
   const [isNavOpen, setIsNavOpen] = useState(false);
-
+const router = useRouter()
   return (
     <div className="flex items-center justify-between py-1 ml-2">
       <nav>
@@ -37,17 +38,17 @@ export default function Header({src, title}) {
             <ul className="flex flex-col items-center justify-between min-h-[250px]">
             <Image className="rounded-full -mt-14"src={src} height={96} width={96} alt="img"/>
             <p className="mt-5 text-xl flex justify-center uppercase font-bold">Hello, {title}!</p>
-              <li className="my-8 uppercase">
-                <Link target="_blank" href="/jewelery">Jewelery</Link>
+              <li className={router.pathname=="/jewelery" ? "text-red-600 my-8 uppercase pb-1 border-b-4 border-red-600 rounded-b-sm":"my-8 uppercase"}>
+                <Link href="/jewelery">Jewelery</Link>
               </li>
-              <li className="my-8 uppercase">
-                <Link target="_blank" href="/electronics">Electronics</Link>
+              <li className={router.pathname=="/electronics" ? "text-red-600 my-8 uppercase pb-1 border-b-4 border-red-600 rounded-b-sm":"my-8 uppercase"}>
+                <Link  href="/electronics">Electronics</Link>
               </li>
-              <li className="my-8 uppercase">
-                <Link target="_blank" href="/men'sClothing">Men's Clothing</Link>
+              <li className={router.pathname=="/men'sClothing" ? "text-red-600 my-8 uppercase pb-1 border-b-4 border-red-600 rounded-b-sm":"my-8 uppercase"}>
+                <Link href="/men'sClothing">Men's Clothing</Link>
               </li>
-              <li className="my-8 uppercase">
-                <Link target="_blank" href="/women'sclothing">Women's Clothing</Link>
+              <li className={router.pathname=="/women'sclothing" ? "text-red-600 my-8 uppercase pb-1 border-b-4 border-red-600 rounded-b-sm":"my-8 uppercase"}>
+                <Link href="/women'sclothing">Women's Clothing</Link>
               </li>
             </ul>
           </div>

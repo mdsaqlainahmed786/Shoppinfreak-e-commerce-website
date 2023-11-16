@@ -3,10 +3,12 @@ import Login from "./login.js"
 import CategoryCard from "./_Components/CategoryCard.js"
 import LoadingBar from 'react-top-loading-bar'
 import axios from "axios"
+import { CartContext } from './_Context/cart'
 import { useSession} from 'next-auth/react';
-import {useState,useEffect} from "react"
+import {useState,useEffect, useContext} from "react"
 export default function Elctronics() {
   const [progress, setProgress ] = useState(0)
+  const {cartItems} = useContext(CartContext)
     const { data: session, status } = useSession();
     const [response,setRes] = useState(null)
     const fetcher = async() =>{
@@ -34,7 +36,7 @@ export default function Elctronics() {
         progress={progress}
         onLoaderFinished={() => setProgress(0)}
       />
-    <Navbar session={session}/>
+     <Navbar session={session} items={cartItems.length}/>
     <div className="absolute -mt-16">
     <p className="ml-5 pb-1 border-b-4 border-orange-600 rounded-b-sm font-sans text-[25px] inline">Results for Gadgets</p>
     </div>
@@ -46,7 +48,8 @@ export default function Elctronics() {
       title={product.title}
       image={product.image}
       description={product.description.slice(0, 80)}
-      price={product.price}/>
+      price={product.price}
+      product={product}/>
       </div>
       ))
   }
