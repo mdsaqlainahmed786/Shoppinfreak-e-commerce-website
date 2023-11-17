@@ -15,7 +15,7 @@ useEffect(() => {
       const data = await fetch(`https://fakestoreapi.com/products`);
       const response = await data.json();
       setRes(response);
-    
+       
     }
   };
 
@@ -57,6 +57,7 @@ useEffect(() => {
 </div>
 <div className="w-fit">
 <p id="title" className="flex ml-4 -mt-[160px] border-b-4 border-orange-600 rounded-b-md border-x-0 font-sans text-[25px] inline">Explore Latest Trends!</p></div>
+
         <div id="main" className="grid grid-cols-2 mt-6 mx-5 gap-5 flex justify-center"> 
   {
     res?.length===0 ?(

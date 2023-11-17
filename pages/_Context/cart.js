@@ -1,5 +1,4 @@
 import { createContext, useState, useEffect } from 'react'
-
 export const CartContext = createContext()
 
 export const CartProvider = ({ children }) => {
@@ -57,6 +56,7 @@ export const CartProvider = ({ children }) => {
   }, []);
 
   return (
+   
     <CartContext.Provider
       value={{
         cartItems,
@@ -68,5 +68,6 @@ export const CartProvider = ({ children }) => {
     >
       {children}
     </CartContext.Provider>
+    
   );
 };

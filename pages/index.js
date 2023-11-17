@@ -1,6 +1,8 @@
 import Navbar from "./_Components/_nav.js"
 import SearchComp from "./_Components/_search.js"
 import LoadingBar from 'react-top-loading-bar'
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 import { useSession} from 'next-auth/react';
 import Login from "./login.js"
 import {useState,useEffect, useContext} from "react"
@@ -10,6 +12,7 @@ import { CartContext } from './_Context/cart'
 export default function Home({term}) {
   const {cartItems} = useContext(CartContext)
   const { data : session }= useSession();
+  
   const [progress, setProgress ] = useState(0)
   const [response,setRes] = useState(null)
   //if (status === 'loading') {
@@ -20,15 +23,14 @@ export default function Home({term}) {
 //     const res = await data.json()
 //     setRes(res)
 //   }
-//   useEffect(()=>{
-//     fetcher()
-//     setProgress(100)
-//   },[])
+
   
+
   if(!session) return <Login/>
   return (
     <>
    <Navbar session={session} items={cartItems.length}/>
+ <ToastContainer style={{width:"250px", marginTop:"55px"}}/>
    <SearchComp/>
  {/*  <div id="main" className="grid grid-cols-2 mt-6 mx-5 gap-5 flex justify-center"> 
   {
