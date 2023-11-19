@@ -8,6 +8,7 @@ import Login from "./login.js"
 import {useState,useEffect, useContext} from "react"
 import axios from "axios"
 import Card from "./_Components/Card.js"
+import Footer from "./_Components/footer"
 import { CartContext } from './_Context/cart'
 export default function Home({term}) {
   const {cartItems} = useContext(CartContext)
@@ -50,6 +51,7 @@ export default function Home({term}) {
         progress={progress}
         onLoaderFinished={() => setProgress(0)}
       />
+      <Footer/>
   </>
   )
   }
