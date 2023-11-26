@@ -1,31 +1,36 @@
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 import Image from "next/image"
+import Footer from "./footer"
 import Card from "../_Components/Card.js"
 import {useContext,useRef, useState, useEffect} from "react"
-
+import angry from "public/angry.png"
 import ecommerce from "public/ecommerce.webp"
 import noResults from "public/Notfound.jpg"
 export default function SearchComp(){
   const [res, setRes] = useState(null)
-  const [err,setErr] = useState("")
+  const [err,setErr] = useState(false)
 const [term, setTerm]=useState("");
- try{
+const [loading, setLoading]=useState(false)
+ 
 useEffect(() => {
   const fetchData = async () => {
-    if (!term) {
-      const data = await fetch(`https://fakestoreapi.com/products`);
-      const response = await data.json();
-      setRes(response);
-    
+    try {
+      if (!term) {
+        setLoading(true)
+        const data = await fetch(`https://fakestoreapi.com/products`);
+        const response = await data.json();
+        setRes(response);
+        setLoading(false)
+      }
+    } catch (e) {
+      setErr(true);
+      setLoading(false)
     }
   };
 
   fetchData();
 }, [term]);
- }catch(e){
-   setErr("This was the error")
-   return err
- }
-
  
   const search = async(e) =>{
     e.preventDefault()
@@ -57,7 +62,23 @@ useEffect(() => {
 </div>
 <div className="w-fit">
 <p id="title" className="flex ml-4 -mt-[160px] border-b-4 border-orange-600 rounded-b-md border-x-0 font-sans text-[25px] inline">Explore Latest Trends!</p></div>
-        <div id="main" className="grid grid-cols-2 mt-6 mx-5 gap-5 flex justify-center"> 
+
+      
+ { loading && 
+ <div className="grid mt-1 grid-cols-2 gap-2 w-full ">
+ {
+ [1,2,3,4,5,6].map((i)=>(
+  
+<Skeleton key={i} height={250} width={190} />
+   ))
+ }
+  </div>
+  
+ 
+   }
+        <div id="main" className="grid grid-cols-2 mt-6 mx-5 gap-5 flex justify-center">
+        
+  
   {
     res?.length===0 ?(
       <>
@@ -65,18 +86,31 @@ useEffect(() => {
       <Image className="opacity-70 ml-24 h-44" src={noResults} alt=".."/>
       <p className="text-sm flex justify-center text-center -ml-44 mt-48 text-neutral-600">Sorry, we have no results for "{term}".Try searching only in Categories.</p>
       </>
-      ):res?.map((product)=>(
+      ):!loading && res?.map((product)=>(
+        <>
       <div key={product.id}>
-      <Card 
-      title={product.title}
-      image={product.image}
-      description={product.description}
-      price={product.price}
-      product={product}/>
+<Card 
+  title={product?.title}
+  image={product?.image}
+  description={product?.description} 
+  price={product?.price}
+  product={product}
+/>
+
       </div>
+      </>
       ))
   }
     </div>
+      {err?      
+      (<>
+      <div className="flex flex-col justify-center">
+        <Image height={100} width={90} className="flex ml-[150px] py-10 opacity-40" src={angry} alt="..swap"/>
+         <p className="ml-12 text-neutral-400">There was Error! please comeback later!!</p>
+
+      </div>
+      
+      </>):null}
     </>
     )
 }

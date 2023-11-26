@@ -49,7 +49,7 @@ export default function Home({term}) {
         progress={progress}
         onLoaderFinished={() => setProgress(0)}
       />
-      <Footer/>
+   <Footer/>
   </>
   )
   }

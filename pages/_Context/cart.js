@@ -1,11 +1,37 @@
 import { createContext, useState, useEffect } from 'react'
-
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 export const CartContext = createContext()
 
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([])
+const notify = () =>{
+  toast.success("Item added to Cart", {
+position: "top-left",
+autoClose: 3000,
+hideProgressBar: false,
+closeOnClick: true,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+theme: "light",
+});  
+}
+const removeNotify = () =>{
+  toast.success("Cart Cleared!", {
+position: "top-left",
+autoClose: 3000,
+hideProgressBar: false,
+closeOnClick: true,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+theme: "light",
+});  
+}
 
   const addToCart = (item) => {
+    
     const isItemInCart = cartItems.find((cartItem) => cartItem.id === item.id);
 
     if (isItemInCart) {
@@ -17,11 +43,13 @@ export const CartProvider = ({ children }) => {
         )
       );
     } else {
+      notify()
       setCartItems([...cartItems, { ...item, quantity: 1 }]);
     }
   };
 
   const removeFromCart = (item) => {
+    
     const isItemInCart = cartItems.find((cartItem) => cartItem.id === item.id);
 
     if (isItemInCart.quantity === 1) {
@@ -38,6 +66,7 @@ export const CartProvider = ({ children }) => {
   };
 
   const clearCart = () => {
+    removeNotify()
     setCartItems([]);
   };
 
@@ -57,6 +86,7 @@ export const CartProvider = ({ children }) => {
   }, []);
 
   return (
+  
     <CartContext.Provider
       value={{
         cartItems,
@@ -67,6 +97,10 @@ export const CartProvider = ({ children }) => {
       }}
     >
       {children}
+          <ToastContainer style={{width:"250px", marginTop:"55px"}}/>
     </CartContext.Provider>
+
+   
+    
   );
 };

@@ -2,22 +2,29 @@ import Navbar from "./_Components/_nav.js"
 import Login from "./login.js"
 import CategoryCard from "./_Components/CategoryCard.js"
 import LoadingBar from 'react-top-loading-bar'
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
+import Footer from "./_Components/footer"
 import { CartContext } from './_Context/cart'
 import axios from "axios"
 import {useContext,useRef, useState, useEffect} from "react"
 import { useSession} from 'next-auth/react';
 export default function Jewelery() {
   const [progress, setProgress ] = useState(0)
+  const [loading, setLoading ] = useState(false)
     const { data: session, status } = useSession();
     const {cartItems} = useContext(CartContext)
     const [response,setRes] = useState(null)
     const fetcher = async() =>{
       try{
+        setLoading(true)
     const data = await fetch("https://fakestoreapi.com/products/category/jewelery")
     const res = await data.json()
     setRes(res)
+    setLoading(false)
     }catch(e){
       <div className="flex justify-center text-9xl">There might be some error</div>
+      setLoading(false)
     }
     }
     useEffect(()=>{
@@ -53,7 +60,22 @@ export default function Jewelery() {
       </div>
       ))
   }
+     { loading && 
+ <div className="flex mt-36 flex-col justify-center items-center -mb-10">
+ {
+ [1,2,3,4,5,6].map((i)=>(
+  
+<Skeleton key={i} height={400} width={250} />
+   ))
+ }
+  </div>
+  
  
+   }
+  {
+    response?<Footer/>:null
+  }
+
     </>
     )
 }

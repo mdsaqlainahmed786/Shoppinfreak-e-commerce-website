@@ -1,7 +1,11 @@
 import { CartContext } from '../_Context/cart'
+import Footer from "./footer"
 import {useContext} from "react"
+
 export default function CategoryCard({image, price, title, description, product}) {
   const { cartItems, addToCart } = useContext(CartContext)
+  
+  
   return(
     <>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet" />
@@ -9,7 +13,7 @@ export default function CategoryCard({image, price, title, description, product}
   <div className="w-64 pl-1 flex items-center justify-center">
     <div className="bg-white rounded-lg overflow-hidden shadow-xl xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2">
 
-      <img className="h- w-full object-cover object-end" src={image} alt="image here" />
+      <img className="w-full object-cover object-end" src={image} alt="image here" />
       <div className="p-3">
            <h4 className="font-semibold text-lg leading-tight truncate pr-5">{title}</h4>
         <div className="mt-1">
@@ -35,6 +39,7 @@ Add to Cart
     </div>
   </div>
 </div>
+
     
     </>
     )
