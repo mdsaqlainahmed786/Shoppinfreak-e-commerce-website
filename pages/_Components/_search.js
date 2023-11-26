@@ -46,8 +46,8 @@ useEffect(() => {
     <>
  
        <div className="mt-11 h-96 py-2">
-   <Image className="h-48 absolute brightness-50" src={ecommerce} width={1000}/>
-   <div className="relative max-w-sm mx-auto flex justify-center top-10">
+   <Image className="h-52 absolute brightness-50" src={ecommerce} width={1000}/>
+   <div className="relative max-w-sm mx-auto flex justify-center top-16">
    <form>
     <input onChange={e=> setTerm(e.target.value.toLowerCase()) } className="-ml-10 w-64 py-2 px-4 border-transparent focus:border-transparent rounded-md shadow-sm focus:outline-0 focus:ring-0 focus:ring-blue-500 focus:border-blue-500" type="search" placeholder="Search Categories" required/>
     <button type="submit" onClick={search} className="absolute inset-y-0
@@ -58,8 +58,8 @@ useEffect(() => {
   </button>
   </form>
   </div>
-  <p className="relative flex justify-center top-[60px] text-white font-light text-[20px]">Search 1000+ Products World wide</p>
-  <p className="relative flex justify-center top-[60px] text-white font-light text-[20px]">And Get Upto 75% Off</p>
+  <p className="relative flex justify-center top-[80px] text-white font-light text-[20px]">Search 1000+ Products World wide</p>
+  <p className="relative flex justify-center top-[80px] text-white font-light text-[20px]">And Get Upto 75% Off</p>
 </div>
 <div className="w-fit">
 <p id="title" className="flex ml-4 -mt-[160px] border-b-4 border-orange-600 rounded-b-md border-x-0 font-sans text-[25px] inline">Explore Latest Trends!</p></div>

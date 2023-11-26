@@ -45,7 +45,8 @@ export default function Cart() {
        {
     cartItems.length > 0 ? (
       <div className="flex flex-col justify-between items-center">
-    <h1 className="text-lg font-bold">Total Cost: ${getCartTotal()}/-</h1>
+    <h1 className="text-lg font-bold">Total Cost: ${getCartTotal()}/- </h1>
+    <p className="my-1 flex justify-center items-center text-sm text-neutral-500">(includes all taxes)</p>
     <button
       className="px-4 py-2 bg-red-600 text-white text-xs font-bold uppercase rounded hover:bg-red-800 focus:outline-none focus:bg-red-800"
       onClick={() => {

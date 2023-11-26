@@ -3,6 +3,7 @@ import { useEffect, useState, useContext} from "react";
 import Login from "../login.js"
 import { CartContext } from '../_Context/cart'
 import DetailCard from "../_Components/DetailCard.js";
+import LoadingBar from 'react-top-loading-bar'
 import Footer from "../_Components/footer";
 import Navbar from "../_Components/_nav.js";
 import { useSession} from 'next-auth/react';
@@ -10,6 +11,8 @@ function ProductDetail() {
   const { data: session, status } = useSession();
   const {cartItems} = useContext(CartContext)
   const [res, setRes] = useState(null);
+ 
+  const [progress, setProgress ] = useState(0)
   const [error, setError] = useState(null); // Add state for handling errors
   const router = useRouter();
   const { productid } = router.query;
@@ -25,12 +28,16 @@ function ProductDetail() {
 
         const response = await data.json();
         setRes(response);
+        
       } catch (error) {
+        
         setError(error.message);
+        
       }
     };
 
 fetcher();
+setProgress(100)
   }, [productid]);   
 
   if (error) {
@@ -40,6 +47,11 @@ if(!session) return <Login/>
   return (
     <>
      <Navbar session={session} items={cartItems.length}/>
+            <LoadingBar
+       color='#f11946'
+        progress={progress}
+        onLoaderFinished={() => setProgress(0)}
+      />
         <div>
           <DetailCard
             title={res?.title}
@@ -49,10 +61,9 @@ if(!session) return <Login/>
             product={res}
           />
           {/* Additional details */}
-
           
         </div>
-   {/*  <Footer/>*/}
+     <Footer/>
     </>
   );
 }

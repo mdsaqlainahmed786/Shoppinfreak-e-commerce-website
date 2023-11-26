@@ -33,7 +33,7 @@ export default function Card({title, price,image, description, product}) {
         
    
         <div>
-<button onClick={() => notify()} class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-full mt-4 -ml-2 group bg-transparent border-2 border-orange-600 group-hover:from-red-500 group-hover:to-orange-400 hover:text-white focus:ring-4 focus:outline-none focus:ring-red-200">
+<button class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-full mt-4 -ml-2 group bg-transparent border-2 border-orange-600 group-hover:from-red-500 group-hover:to-orange-400 hover:text-white focus:ring-4 focus:outline-none focus:ring-red-200">
 <span class="relative px-2 py-1.5transition-all ease-in duration-75 text-transparent bg-clip-text text-sm bg-gradient-to-r from-orange-400 to-red-700 rounded-md group-hover:bg-opacity-0">
 View More
 </span>
