@@ -19,7 +19,7 @@ export default function CategoryCard({image, price, title, description, product}
         <div className="mt-1">
           <span>${price}/-</span>
         </div>
-        <div className="mt-2 flex items-center text-[13px]">
+        <div className="mt-2 flex items-center text-yellow-300 text-[13px]">
               <i className="fas fa-star"></i>
               <i className="fas fa-star"></i>
               <i className="fas fa-star"></i>

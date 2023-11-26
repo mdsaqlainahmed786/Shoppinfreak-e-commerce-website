@@ -1,5 +1,6 @@
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
+import Link from "next/link"
 import Image from "next/image"
 import Footer from "./footer"
 import Card from "../_Components/Card.js"
@@ -89,13 +90,15 @@ useEffect(() => {
       ):!loading && res?.map((product)=>(
         <>
       <div key={product.id}>
-<Card 
+      <Link href={`products/${product.id}`}>
+<Card
   title={product?.title}
   image={product?.image}
   description={product?.description} 
   price={product?.price}
   product={product}
 />
+</Link>
 
       </div>
       </>
