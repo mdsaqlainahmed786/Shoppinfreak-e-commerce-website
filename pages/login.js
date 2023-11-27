@@ -19,7 +19,7 @@ export default function Login() {
     <Image  
     className="inline bg-center brightness-75 max-h-full max-w-full absolute overscroll-x-none" src={backpic}/>
     <div className="text-white top-[440px] relative bg-gradient-to-t from-black to-transparent h-72"><p className="font-serif flex justify-center text-[15px]">Login to</p>
-      <p className="flex justify-center mt-1.5 text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-700 font-medium text-[35px] select-none">SHOPPINFREAK</p>
+      <p className="flex justify-center mt-1.5 text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-700 font-medium text-[35px] select-none">SHOPPINFREAKING</p>
       <p className="-mt-3 text-white flex justify-center text-[18px] font-thin">For Deals upto 75% OFF</p>
     <button onClick={()=>signIn('google')} type="button" className="text-red-400 bg-transparent border-red-400 border-2 hover:bg-red-400/90 focus:ring-4 focus:ring-red-400/50 focus:text-white hover:text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 ml-24 mb-2 mt-7">
   <svg className="w-4 h-4 mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 19">
