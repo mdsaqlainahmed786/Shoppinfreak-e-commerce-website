@@ -1,13 +1,13 @@
-import Navbar from "./_Components/_nav.js"
-import SearchComp from "./_Components/_search.js"
+import Navbar from "./Components/_nav.js"
+import SearchComp from "./Components/_search.js"
 import LoadingBar from 'react-top-loading-bar'
 import { useSession} from 'next-auth/react';
 import Login from "./login.js"
 import {useState,useEffect, useContext} from "react"
 import axios from "axios"
-import Card from "./_Components/Card.js"
-import Footer from "./_Components/footer"
-import { CartContext } from './_Context/cart'
+import Card from "./Components/Card.js"
+import Footer from "./Components/footer"
+import { CartContext } from './Context/cart'
 export default function Home({term}) {
   const {cartItems} = useContext(CartContext)
   const { data : session }= useSession();

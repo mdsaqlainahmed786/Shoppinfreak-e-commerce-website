@@ -1,9 +1,8 @@
 import { createContext, useState, useEffect } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
-export const CartContext = createContext()
-
-export const CartProvider = ({ children }) => {
+  export const CartContext = createContext()
+ function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState([])
 const notify = () =>{
   toast.success("Item added to Cart", {
@@ -52,17 +51,18 @@ theme: "light",
     
     const isItemInCart = cartItems.find((cartItem) => cartItem.id === item.id);
 
-    if (isItemInCart.quantity === 1) {
-      setCartItems(cartItems.filter((cartItem) => cartItem.id !== item.id));
-    } else {
-      setCartItems(
-        cartItems.map((cartItem) =>
-          cartItem.id === item.id
-            ? { ...cartItem, quantity: cartItem.quantity - 1 }
-            : cartItem
-        )
-      );
-    }
+if (isItemInCart && isItemInCart.quantity === 1) {
+  setCartItems(cartItems.filter((cartItem) => cartItem.id !== item.id));
+} else if (isItemInCart) {
+  setCartItems(
+    cartItems.map((cartItem) =>
+      cartItem.id === item.id
+        ? { ...cartItem, quantity: cartItem.quantity - 1 }
+        : cartItem
+    )
+  );
+}
+
   };
 
   const clearCart = () => {
@@ -99,8 +99,6 @@ theme: "light",
       {children}
           <ToastContainer style={{width:"250px", marginTop:"55px"}}/>
     </CartContext.Provider>
-
-   
-    
   );
 };
+export default CartProvider;

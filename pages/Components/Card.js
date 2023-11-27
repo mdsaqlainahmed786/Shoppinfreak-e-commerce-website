@@ -1,6 +1,6 @@
 import {useContext,useRef, useState, useEffect} from "react"
 import Link from "next/link"
-import { CartContext } from '../_Context/cart'
+import { CartContext } from '../Context/cart'
 export default function Card({title, price,image, description, product}) {
   const { cartItems, addToCart } = useContext(CartContext)
   const notify = () =>{

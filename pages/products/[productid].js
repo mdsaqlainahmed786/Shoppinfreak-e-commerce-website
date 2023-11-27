@@ -1,11 +1,10 @@
 import { useRouter } from "next/router";
 import { useEffect, useState, useContext} from "react";
 import Login from "../login.js"
-import { CartContext } from '../_Context/cart'
-import DetailCard from "../_Components/DetailCard.js";
+import { CartContext } from '../Context/cart'
+import DetailCard from "../Components/DetailCard.js";
 import LoadingBar from 'react-top-loading-bar'
-import Footer from "../_Components/footer";
-import Navbar from "../_Components/_nav.js";
+import Navbar from "../Components/_nav.js";
 import { useSession} from 'next-auth/react';
 function ProductDetail() {
   const { data: session, status } = useSession();
@@ -63,7 +62,7 @@ if(!session) return <Login/>
           {/* Additional details */}
           
         </div>
-     <Footer/>
+
     </>
   );
 }

@@ -1,4 +1,4 @@
-import { CartContext } from '../_Context/cart'
+import { CartContext } from '../Context/cart'
 import Footer from "./footer"
 import {useContext} from "react"
 

@@ -1,11 +1,11 @@
-import Navbar from "./_Components/_nav.js"
+import Navbar from "./Components/_nav.js"
 import Login from "./login.js"
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
-import CategoryCard from "./_Components/CategoryCard.js"
-import Footer from "./_Components/footer"
+import CategoryCard from "./Components/CategoryCard.js"
+import Footer from "./Components/footer"
 import LoadingBar from 'react-top-loading-bar'
-import { CartContext } from './_Context/cart'
+import { CartContext } from './Context/cart'
 import axios from "axios"
 import { useSession} from 'next-auth/react';
 import {useState,useEffect, useContext} from "react"

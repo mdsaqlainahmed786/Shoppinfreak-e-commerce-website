@@ -3,7 +3,7 @@ import 'react-loading-skeleton/dist/skeleton.css'
 import Link from "next/link"
 import Image from "next/image"
 import Footer from "./footer"
-import Card from "../_Components/Card.js"
+import Card from "../Components/Card.js"
 import {useContext,useRef, useState, useEffect} from "react"
 import angry from "public/angry.png"
 import ecommerce from "public/ecommerce.webp"

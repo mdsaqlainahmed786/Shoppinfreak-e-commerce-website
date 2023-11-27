@@ -15,9 +15,9 @@ export default function Login() {
         progress={progress}
         onLoaderFinished={() => setProgress(0)}
       />
-    <div className="h-[600px] w-full">
+    <div className="h-full w-full overscroll-x-none">
     <Image  
-    className="m-0 -mb-96 brightness-75 max-h-full max-w-full absolute" src={backpic}/>
+    className="inline bg-center brightness-75 max-h-full max-w-full absolute overscroll-x-none" src={backpic}/>
     <div className="text-white top-[440px] relative bg-gradient-to-t from-black to-transparent h-72"><p className="font-serif flex justify-center text-[15px]">Login to</p>
       <p className="flex justify-center mt-1.5 text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-700 font-medium text-[35px] select-none">SHOPPINFREAK</p>
       <p className="-mt-3 text-white flex justify-center text-[18px] font-thin">For Deals upto 75% OFF</p>

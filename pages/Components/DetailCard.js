@@ -4,8 +4,9 @@ import payment from "public/Paying.png"
 import trust from "public/trust.png"
 import topBrand from "public/Top.png"
 import replace from "public/Return.png"
+import Footer from "../Components/footer";
 import {useContext} from "react"
-import { CartContext } from '../_Context/cart'
+import { CartContext } from '../Context/cart'
 export default function DetailCard({title, product, image, price, description}) {
   const { cartItems, addToCart } = useContext(CartContext)
   return (
@@ -31,7 +32,7 @@ export default function DetailCard({title, product, image, price, description}) 
         </div>
     </div>
     <div className="mt-5 ml-3">
-    <p className="text-2xl bold">Availability: <span className="text-green-600 text-2xl font-bold">In Stock</span></p>
+    <p className="text-2xl bold">Availability: <span className="text-green-600 text-2xl">In Stock</span></p>
     </div>
     <div className="w-full ml-3 mt-3">
     <p className="text-2xl bold border-b-4 border-orange-600 rounded-b-md mr-40">More About Product:</p>
@@ -67,6 +68,7 @@ export default function DetailCard({title, product, image, price, description}) 
 <Link className="text-orange-600 mt-5" href="/">Continue Shopping<span className="text-3xl">&#8594;</span></Link>
 </div>
 </div>
+     <Footer/>
    </> 
     )
 }
