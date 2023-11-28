@@ -64,9 +64,6 @@ export default function DetailCard({title, product, image, price, description}) 
 <p className="flex flex-col justify-center items-center  overflow-visible">Popular Brands</p>
 </div>
 </div>
-<div className="flex justify-center items-center">
-<Link className="text-orange-600 mt-5" href="/">Continue Shopping<span className="text-3xl">&#8594;</span></Link>
-</div>
 </div>
      <Footer/>
    </> 
