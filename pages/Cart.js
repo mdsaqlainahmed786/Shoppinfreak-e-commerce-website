@@ -56,16 +56,16 @@ export default function Cart() {
     >
       Clear cart
     </button>
-             <Link className="ml-5 text-orange-600 mt-10" href="/">Continue Shopping <span className="text-3xl">&#8594;</span></Link>
+             <Link className="flex justify-center items-center text-orange-600 mt-10" href="/">Continue Shopping&nbsp;<span className="text-xl">&gt;</span></Link>
          
 
   </div>
     ) : (
       <>
-      <div className="flex flex-col justify-center">
-        <Image height={100} width={90} className="flex ml-16 py-10 opacity-40" src={angry} alt="..swap"/>
-         <p className="ml-4 text-neutral-400">No Items to display in your cart</p>
-         <Link className="ml-16 text-orange-600 mt-10" href="/">Shop Now<span className="text-3xl">&#8594;</span></Link>
+      <div className="flex flex-col justify-center items-center">
+        <Image height={100} width={90} className="flex py-10 opacity-40" src={angry} alt="..swap"/>
+         <p className="text-neutral-400">No Items to display in your cart</p>
+         <Link className="inline text-orange-600 mt-10 flex justify-center items-center" href="/">Shop Now&nbsp;<span className="text-xl">&gt;</span></Link>
       </div>
       
       </>
