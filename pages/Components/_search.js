@@ -5,7 +5,7 @@ import Image from "next/image"
 import Footer from "./footer"
 import Card from "../Components/Card.js"
 import {useContext,useRef, useState, useEffect} from "react"
-import angry from "public/angry.png"
+import error from "public/error.png"
 import ecommerce from "public/ecommerce.webp"
 import noResults from "public/Notfound.jpg"
 export default function SearchComp(){
@@ -105,12 +105,11 @@ useEffect(() => {
       ))
   }
     </div>
-      {err?      
+         {err?      
       (<>
-      <div className="flex flex-col justify-center">
-        <Image height={100} width={90} className="flex ml-[150px] py-10 opacity-40" src={angry} alt="..swap"/>
-         <p className="ml-12 text-neutral-400">There was Error! please comeback later!!</p>
-
+      <div className="flex flex-col justify-center items-center">
+        <Image height={100} width={90} className="flex mt-16 py-7 opacity-60" src={error} alt="..swap"/>
+         <p className="flex justify-center items-center text-neutral-400">There was a Technical Error!</p> <p className="flex justify-center text-neutral-400">Please try to Reload page or comeback later!!</p>
       </div>
       
       </>):null}

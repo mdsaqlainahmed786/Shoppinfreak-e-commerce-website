@@ -1,6 +1,8 @@
 import Navbar from "./Components/_nav.js"
 import Login from "./login.js"
 import CategoryCard from "./Components/CategoryCard.js"
+import Image from "next/image"
+import error from "public/error.png"
 import Footer from "./Components/footer"
 import LoadingBar from 'react-top-loading-bar'
 import Skeleton from 'react-loading-skeleton'
@@ -11,6 +13,7 @@ import { useSession} from 'next-auth/react';
 import {useState,useEffect, useContext} from "react"
 export default function Elctronics() {
   const [progress, setProgress ] = useState(0)
+    const [err, setErr ] = useState(false)
   const [loading,setLoading] = useState(false)
   const {cartItems} = useContext(CartContext)
     const { data: session, status } = useSession();
@@ -23,7 +26,7 @@ export default function Elctronics() {
     setRes(res)
     setLoading(false)
     }catch(e){
-      <div className="flex justify-center text-9xl">There might be some error</div>
+       setErr(true)
       setLoading(false)
     }
     }
@@ -72,9 +75,17 @@ export default function Elctronics() {
   
  
    }
-  {
-    response?<Footer/>:null
-  }
+  
+           {err?      
+      (<>
+      <div className="flex flex-col justify-center items-center">
+        <Image height={100} width={90} className="flex mt-44 py-10 opacity-60" src={error} alt="..swap"/>
+         <p className="flex justify-center items-center text-neutral-400">There was a Technical Error!</p> <p className="flex justify-center text-neutral-400">Please try to Reload page or comeback later!!</p>
+      </div>
+      
+      </>):null}
+    <Footer/>
+  
     </>
     )
 }
