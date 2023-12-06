@@ -13,7 +13,6 @@ export default function SearchComp(){
   const [err,setErr] = useState(false)
 const [term, setTerm]=useState("");
 const [loading, setLoading]=useState(false)
- 
 useEffect(() => {
   const fetchData = async () => {
     try {
@@ -38,7 +37,6 @@ useEffect(() => {
     if(!term) return
     const stats = await fetch(`https://fakestoreapi.com/products/category/${term}`)
     const response = await stats.json()
-    console.log(response)
     setRes(response)
     }
 
@@ -49,7 +47,8 @@ useEffect(() => {
    <Image className="h-52 absolute brightness-50" src={ecommerce} width={1000}/>
    <div className="relative max-w-sm mx-auto flex justify-center top-16">
    <form>
-    <input onChange={e=> setTerm(e.target.value.toLowerCase()) } className="-ml-10 w-64 py-2 px-4 border-transparent focus:border-transparent rounded-md shadow-sm focus:outline-0 focus:ring-0 focus:ring-blue-500 focus:border-blue-500" type="search" placeholder="Search Categories" required/>
+    <input onChange={e=> setTerm(e.target.value.toLowerCase()) } className="-ml-10 w-64 py-2 px-4 rounded-md shadow-sm focus:outline-0 focus:ring-0 focus:ring-blue-500 focus:border-blue-500 placeholder:italic" type="search" placeholder="Search Categories..." required/>
+
     <button type="submit" onClick={search} className="absolute inset-y-0
     left-[290px] flex items-center px-4 text-white bg-orange-600 rounded-r-md hover:bg-gray-200 focus:outline-none focus:ring-0 focus:ring-blue-500 focus:border-blue-500">
     <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">

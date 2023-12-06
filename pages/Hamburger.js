@@ -37,7 +37,7 @@ const router = useRouter()
             </div>
             <ul className="flex flex-col items-center justify-between min-h-[250px]">
             <Image className="rounded-full -mt-14"src={src} height={96} width={96} alt="img"/>
-            <p className="mt-5 text-2xl flex justify-center bold uppercase">Hello, {title}!</p>
+            <p className="mt-5 text-xl flex justify-center items-center bold uppercase">Hello, {title}!</p>
               <li className={router.pathname=="/jewelery" ? "text-red-600 my-8 uppercase pb-1 border-b-4 border-red-600 rounded-b-sm":"my-8 uppercase"}>
                 <Link href="/jewelery">Jewelery</Link>
               </li>
