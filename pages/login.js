@@ -42,7 +42,7 @@ export default function Login() {
 </button>
 </div>
         <div className="flex items-center justify-center bg-gray-600/60 backdrop-filter backdrop-blur-md fixed w-full bottom-0 py-2">
-        <p className="text-[10px] text-white">Images in this website are subjected to Copy Right®</p>
+        <p className="text-[10px] text-white">Images in this website are subjected to Copy Right©</p>
         </div>
         <div>
         </div>
