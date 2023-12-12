@@ -19,7 +19,7 @@ export default function Cart() {
     <div className="flex-col flex items-center bg-white gap-8 p-10 text-black text-sm">
   <h1 className="mt-11 mr-44 -ml-8 pb-1 border-b-4 border-orange-600 rounded-b-sm font-sans text-[25px] inline">Your Cart</h1>
           {cartItems.map((item) => (
-                <div className="flex space-x-10 items-center hover:bg-gray-100 py-2 -mr-10"> 
+                <div className="flex space-x-10 items-center py-2 -mr-10"> 
           <div className="flex w-2/5 -ml-5">
             <div className="w-36">
               <img className="h-20 w-96" src={item.image} alt={item.title}/>
